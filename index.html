@@ -1,16 +1,51 @@
+<!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Simple Interest Calculator</h1>
+</head>
 
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
+<body onload="updateRange()">
+    <div class="main">
+        <div class="calculator">
+            <h1 class="title">Simple Interest Calculator</h1>
+            <div class="fields">
+                <p class="field">
+                    <label>Amount</label>
+                    <input type="number" id="principal" value="1000000" onchange="toggleOutputDisplay(false)" />
+                </p>
+                <p class="field">
+                    <label>Interest Rate</label>
+                    <input type="range" id="rate" min="0" max="20" step="0.5" onchange="updateRange(this)" />
+                    <span id="range_value"></span>
+                </p>
+                <p class="field">
+                    <label>No. of Years</label>
+                    <select id="years" onchange="toggleOutputDisplay(false)">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="1">6</option>
+                        <option value="2">7</option>
+                        <option value="3">8</option>
+                        <option value="4">9</option>
+                        <option value="5">10</option>
+                    </select>
+                </p>
+                <button type="button" onclick="compute()">Compute Interest</button>
+            </div>
+            <div class="output" id="output" style="display: none;">
+                If you deposit <mark id="deposit_ammount"></mark>,<br />
+                at an interest rate of <mark id="interest_rate"></mark>.<br />
+                You will receive the amount of <mark id="amount_to_receive"></mark>,<br />
+                in the year <mark id="in_year"></mark>.
+            </div>
+        </div>
+        <p class="copyright">&#9400; Everyone Can Get Rich</p>
+    </div>
+</body>
 
-        <button onclick="compute()">Compute</button>
-    </body>
 </html>
