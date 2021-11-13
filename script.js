@@ -17,9 +17,11 @@ const updateRange = e => {
 }
 
 const compute = () => {
-    const principal = parseFloat(document.getElementById('principal')?.value)
+    const principalInput = document.getElementById('principal')
+    const principal = parseFloat(principalInput?.value)
     if (!principal || principal <= 0) {
         alert('Please enter a positive number for amount.')
+        principalInput.focus()
         return false
     }
     toggleOutputDisplay(true)
