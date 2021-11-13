@@ -17,7 +17,7 @@ const updateRange = e => {
 }
 
 const compute = () => {
-    const pricipal = document.getElementById('principal')?.value
+    const pricipal = parseFloat(document.getElementById('principal')?.value)
     if (!pricipal) {
         alert('Please enter a valid amount.')
         return false
@@ -29,7 +29,7 @@ const compute = () => {
         depositAmmount.innerHTML = pricipal
     }
 
-    const rate = document.getElementById('rate').value
+    const rate = parseFloat(document.getElementById('rate').value)
     const interestRate = document.getElementById('interest_rate')
     if (interestRate) {
         interestRate.innerHTML = `${rate}%`
