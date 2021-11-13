@@ -19,7 +19,7 @@ const updateRange = e => {
 const compute = () => {
     const principal = parseFloat(document.getElementById('principal')?.value)
     if (!principal || principal <= 0) {
-        alert('Please enter a valid amount.')
+        alert('Please enter a positive number for amount.')
         return false
     }
     toggleOutputDisplay(true)
