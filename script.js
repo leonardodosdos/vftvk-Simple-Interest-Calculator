@@ -17,8 +17,8 @@ const updateRange = e => {
 }
 
 const compute = () => {
-    const pricipal = parseFloat(document.getElementById('principal')?.value)
-    if (!pricipal) {
+    const principal = parseFloat(document.getElementById('principal')?.value)
+    if (!principal || principal <= 0) {
         alert('Please enter a valid amount.')
         return false
     }
@@ -26,7 +26,7 @@ const compute = () => {
 
     const depositAmmount = document.getElementById('deposit_ammount')
     if (depositAmmount) {
-        depositAmmount.innerHTML = pricipal
+        depositAmmount.innerHTML = principal
     }
 
     const rate = parseFloat(document.getElementById('rate').value)
@@ -38,7 +38,7 @@ const compute = () => {
     const years = parseInt(document.getElementById('years').value)
     const amountToReceive = document.getElementById('amount_to_receive')
     if (amountToReceive) {
-        const totalInterest = (pricipal * (rate / 100)).toFixed(2) * years
+        const totalInterest = (principal * (rate / 100)).toFixed(2) * years
         amountToReceive.innerHTML = totalInterest
     }
 
